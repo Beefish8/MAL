@@ -1,5 +1,552 @@
 {
-    "MyTask1": {},
-    "MyTask2": {},
-    "MyTask3": {}
+    "日常": {
+        "next": "访问城市"
+    },
+    "访问城市": {
+        "recognition": "OCR",
+        "expected": [
+            "访问城市",
+            "访问地区"
+        ],
+        "next": [
+            "曼德矿场",
+            "修格里城",
+            "澄明数据中心",
+            "7号自由港",
+            "阿妮塔发射中心"
+        ],
+        "timeout": 5000,
+        "timeout_next": "返程访问城市"
+    },
+    "曼德矿场": {
+        "is_sub": true,
+        "times_limit": 1,
+        "runout_next": "曼德矿场出发1",
+        "recognition": "OCR",
+        "expected": "曼德矿场",
+        "action": "Click",
+        "target": "访问城市",
+        "next": "休息区1"
+    },
+    "修格里城": {
+        "is_sub": true,
+        "times_limit": 1,
+        "runout_next": "修格里城出发1",
+        "recognition": "OCR",
+        "expected": "修格里城",
+        "action": "Click",
+        "target": "访问城市",
+        "next": "休息区1"
+    },
+    "澄明数据中心": {
+        "is_sub": true,
+        "times_limit": 1,
+        "runout_next": "澄明数据中心出发1",
+        "recognition": "OCR",
+        "expected": "澄明数据中心",
+        "action": "Click",
+        "target": "访问城市",
+        "next": "休息区1"
+    },
+    "7号自由港": {
+        "is_sub": true,
+        "times_limit": 1,
+        "runout_next": "7号自由港出发1",
+        "recognition": "OCR",
+        "expected": "7号自由港",
+        "action": "Click",
+        "target": "访问城市",
+        "next": "7号自由港2"
+    },
+    "7号自由港2": {
+        "action": "Swipe",
+        "begin": [
+            2500,
+            500,
+            0,
+            0
+        ],
+        "end": [
+            500,
+            2500,
+            0,
+            0
+        ],
+        "next": "休息区1"
+    },
+    "阿妮塔发射中心": {
+        "is_sub": true,
+        "times_limit": 1,
+        "runout_next": "阿妮塔发射中心出发1",
+        "recognition": "OCR",
+        "expected": "阿妮塔发射中心",
+        "action": "Click",
+        "target": "访问城市",
+        "next": "商会"
+    },
+    "休息区1": {
+        "recognition": "OCR",
+        "expected": "休息区",
+        "action": "Click",
+        "target_offset": [
+            0,
+            100,
+            0,
+            0
+        ],
+        "next": "喝一杯"
+    },
+    "休息区2": {
+        "recognition": "FeatureMatch",
+        "template": "休息区.png",
+        "action": "Click",
+        "next": "喝一杯"
+    },
+    "喝一杯": {
+        "recognition": "OCR",
+        "expected": "喝一杯",
+        "action": "Click",
+        "next": [
+            "再制作一杯",
+            "银枝气泡水"
+        ]
+    },
+    "再制作一杯": {
+        "recognition": "OCR",
+        "expected": "再制作一杯",
+        "next": "取消"
+    },
+    "取消": {
+        "recognition": "OCR",
+        "expected": "取消",
+        "action": "Click",
+        "next": "返回"
+    },
+    "银枝气泡水": {
+        "recognition": "OCR",
+        "expected": "银枝气泡水",
+        "action": "Click",
+        "next": [
+            "再喝一杯",
+            "SKIP"
+        ]
+    },
+    "再喝一杯": {
+        "recognition": "FeatureMatch",
+        "template": "再喝一杯.png",
+        "action": "Click",
+        "next": [
+            "银枝气泡水",
+            "SKIP"
+        ]
+    },
+    "SKIP": {
+        "recognition": "OCR",
+        "expected": "SKIP",
+        "action": "Click",
+        "next": "返回"
+    },
+    "商会": {
+        "recognition": "OCR",
+        "expected": "商会",
+        "action": "Click",
+        "target_offset": [
+            0,
+            100,
+            0,
+            0
+        ],
+        "next": "运输订单"
+    },
+    "运输订单": {
+        "recognition": "OCR",
+        "expected": "运输订单",
+        "action": "Click",
+        "next": "接取订单1",
+        "timeout": 5000,
+        "timeout_next": "主页"
+    },
+    "接取订单1": {
+        "recognition": "OCR",
+        "expected": "接取订单",
+        "action": "Click",
+        "next": "触碰空白区域退出"
+    },
+    "触碰空白区域退出": {
+        "recognition": "OCR",
+        "expected": "触碰空白区域退出",
+        "next": "接取订单2"
+    },
+    "接取订单2": {
+        "recognition": "OCR",
+        "expected": "接取订单",
+        "action": "Click",
+        "next": [
+            "不足",
+            "接取订单1"
+        ],
+        "timeout": 5000,
+        "timeout_next": "商会返回"
+    },
+    "不足": {
+        "recognition": "OCR",
+        "expected": "不足",
+        "action": "Click",
+        "target": "触碰空白区域退出",
+        "next": "主页"
+    },
+    "商会返回": {
+        "recognition": "FeatureMatch",
+        "template": "返回.png",
+        "action": "Click",
+        "next": "运输订单b"
+    },
+    "运输订单b": {
+        "recognition": "OCR",
+        "expected": "运输订单",
+        "action": "Click",
+        "next": "接取订单b1",
+        "timeout": 5000,
+        "timeout_next": "主页"
+    },
+    "接取订单b1": {
+        "recognition": "OCR",
+        "expected": "接取订单",
+        "action": "Click",
+        "next": "触碰空白区域退出b"
+    },
+    "触碰空白区域退出b": {
+        "recognition": "OCR",
+        "expected": "触碰空白区域退出",
+        "next": "接取订单b2"
+    },
+    "接取订单b2": {
+        "recognition": "OCR",
+        "expected": "接取订单",
+        "action": "Click",
+        "next": [
+            "不足b",
+            "接取订单b1"
+        ],
+        "timeout": 5000,
+        "timeout_next": "主页"
+    },
+    "不足b": {
+        "recognition": "OCR",
+        "expected": "不足",
+        "action": "Click",
+        "target": "触碰空白区域退出",
+        "next": "主页"
+    },
+    "返回": {
+        "recognition": "FeatureMatch",
+        "template": "返回.png",
+        "action": "Click",
+        "next": "商会"
+    },
+    "主页": {
+        "recognition": "FeatureMatch",
+        "template": "主页.png",
+        "action": "Click",
+        "next": "访问城市"
+    },
+    "曼德矿场出发1": {
+        "recognition": "OCR",
+        "expected": "启程",
+        "action": "Click",
+        "next": "曼德矿场出发2"
+    },
+    "曼德矿场出发2": {
+        "recognition": "OCR",
+        "expected": "修格里城",
+        "action": "Click",
+        "next": "前往目的地"
+    },
+    "修格里城出发1": {
+        "recognition": "OCR",
+        "expected": "启程",
+        "action": "Click",
+        "next": "修格里城出发2"
+    },
+    "修格里城出发2": {
+        "recognition": "OCR",
+        "expected": "澄明数据中心",
+        "action": "Click",
+        "next": "前往目的地"
+    },
+    "澄明数据中心出发1": {
+        "recognition": "OCR",
+        "expected": "启程",
+        "action": "Click",
+        "next": "澄明数据中心出发2"
+    },
+    "澄明数据中心出发2": {
+        "recognition": "OCR",
+        "expected": "7号自由港",
+        "action": "Click",
+        "next": "前往目的地"
+    },
+    "7号自由港出发1": {
+        "recognition": "OCR",
+        "expected": "启程",
+        "action": "Click",
+        "next": "7号自由港出发2"
+    },
+    "7号自由港出发2": {
+        "action": "Swipe",
+        "begin": [
+            500,
+            2500,
+            0,
+            0
+        ],
+        "end": [
+            500,
+            500,
+            0,
+            0
+        ],
+        "next": "7号自由港出发3"
+    },
+    "7号自由港出发3": {
+        "recognition": "OCR",
+        "expected": "阿妮塔发射中心",
+        "action": "Click",
+        "next": "前往目的地"
+    },
+    "阿妮塔发射中心出发1": {
+        "recognition": "OCR",
+        "expected": "启程",
+        "action": "Click",
+        "next": "阿妮塔发射中心出发2"
+    },
+    "阿妮塔发射中心出发2": {
+        "recognition": "OCR",
+        "expected": "阿妮塔能源研究所",
+        "action": "Click",
+        "next": "前往目的地"
+    },
+    "前往目的地": {
+        "recognition": "OCR",
+        "expected": "前往目的地",
+        "timeout": 3600000,
+        "action": "Click",
+        "next": "进入站点"
+    },
+    "进入站点": {
+        "recognition": "OCR",
+        "expected": "进入站点",
+        "action": "Click",
+        "next": "站点到达1",
+        "timeout": 5000
+    },
+    "站点到达1": {
+        "recognition": "OCR",
+        "expected": "触碰空白区域退出",
+        "action": "Click",
+        "next": "站点到达2"
+    },
+    "站点到达2": {
+        "recognition": "OCR",
+        "expected": "触碰空白区域退出",
+        "action": "Click"
+    },
+    "返程访问城市": {
+        "recognition": "OCR",
+        "expected": "启程",
+        "next": [
+            "阿妮塔能源研究所b",
+            "7号自由港b",
+            "澄明数据中心b",
+            "修格里城b",
+            "荒原站b",
+            "淘金乐园b",
+            "曼德矿场b"
+        ]
+    },
+    "阿妮塔能源研究所b": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "expected": "阿妮塔能源研究所",
+        "action": "Click",
+        "target": "返程访问城市",
+        "next": "阿妮塔能源研究所b2"
+    },
+    "阿妮塔能源研究所b2": {
+        "action": "Swipe",
+        "begin": [
+            500,
+            500,
+            0,
+            0
+        ],
+        "end": [
+            500,
+            2500,
+            0,
+            0
+        ],
+        "next": "阿妮塔能源研究所b3"
+    },
+    "阿妮塔能源研究所b3": {
+        "recognition": "OCR",
+        "expected": "7号自由港",
+        "action": "Click",
+        "next": "前往目的地"
+    },
+    "7号自由港b": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "expected": "7号自由港",
+        "action": "Click",
+        "target": "返程访问城市",
+        "next": "7号自由港b2"
+    },
+    "7号自由港b2": {
+        "recognition": "OCR",
+        "expected": "澄明数据中心",
+        "action": "Click",
+        "next": "前往目的地"
+    },
+    "澄明数据中心b": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "expected": "澄明数据中心",
+        "action": "Click",
+        "target": "返程访问城市",
+        "next": "澄明数据中心b2"
+    },
+    "澄明数据中心b2": {
+        "recognition": "OCR",
+        "expected": "修格里城",
+        "action": "Click",
+        "next": "前往目的地"
+    },
+    "修格里城b": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "expected": "修格里城",
+        "action": "Click",
+        "target": "返程访问城市",
+        "next": "修格里城b2"
+    },
+    "修格里城b2": {
+        "recognition": "OCR",
+        "expected": "荒原站",
+        "action": "Click",
+        "next": "前往目的地"
+    },
+    "荒原站b": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "expected": "荒原站",
+        "next": "垃圾回收1"
+    },
+    "垃圾回收1": {
+        "recognition": "OCR",
+        "expected": "访问地区",
+        "action": "Click",
+        "next": "垃圾回收2"
+    },
+    "垃圾回收2": {
+        "action": "Swipe",
+        "begin": [
+            500,
+            500,
+            0,
+            0
+        ],
+        "end": [
+            2500,
+            2500,
+            0,
+            0
+        ],
+        "next": "垃圾回收3"
+    },
+    "垃圾回收3": {
+        "recognition": "OCR",
+        "expected": "熔炉号垃圾回收船",
+        "action": "Click",
+        "target_offset": [
+            0,
+            100,
+            0,
+            0
+        ],
+        "next": "垃圾回收4"
+    },
+    "垃圾回收4": {
+        "recognition": "FeatureMatch",
+        "template": "垃圾回收.png",
+        "action": "Click",
+        "next": "垃圾回收5",
+        "timeout": 5000,
+        "timeout_next": "垃圾回收7"
+    },
+    "垃圾回收5": {
+        "recognition": "OCR",
+        "expected": "回收所有垃圾",
+        "action": "Click",
+        "next": "垃圾回收6"
+    },
+    "垃圾回收6": {
+        "recognition": "OCR",
+        "expected": "触碰空白区域退出",
+        "action": "Click",
+        "next": "垃圾回收7"
+    },
+    "垃圾回收7": {
+        "recognition": "FeatureMatch",
+        "template": "主页.png",
+        "action": "Click",
+        "next": "荒原站b2"
+    },
+    "荒原站b2": {
+        "recognition": "OCR",
+        "expected": "启程",
+        "action": "Click",
+        "next": "荒原站b3"
+    },
+    "荒原站b3": {
+        "action": "Swipe",
+        "begin": [
+            500,
+            2500,
+            0,
+            0
+        ],
+        "end": [
+            500,
+            500,
+            0,
+            0
+        ],
+        "next": "荒原站b4"
+    },
+    "荒原站b4": {
+        "recognition": "OCR",
+        "expected": "淘金乐园",
+        "action": "Click",
+        "next": "前往目的地"
+    },
+    "淘金乐园b": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "expected": "淘金乐园",
+        "action": "Click",
+        "target": "返程访问城市",
+        "next": "淘金乐园b2"
+    },
+    "淘金乐园b2": {
+        "recognition": "OCR",
+        "expected": "曼德矿场",
+        "action": "Click",
+        "next": "前往目的地"
+    },
+    "曼德矿场b": {
+        "recognition": "OCR",
+        "expected": "曼德矿场",
+        "action": "StopTask"
+    }
 }
