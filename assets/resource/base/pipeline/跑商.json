@@ -1,0 +1,485 @@
+{
+    "跑商": {
+        "recognition": "OCR",
+        "expected": "曼德矿场",
+        "next": "买货1"
+    },
+    "买货1": {
+        "recognition": "OCR",
+        "expected": [
+            "访问城市",
+            "访问地区"
+        ],
+        "action": "Click",
+        "next": "买货2"
+    },
+    "买货2": {
+        "action": "Swipe",
+        "begin": [
+            2500,
+            500,
+            0,
+            0
+        ],
+        "end": [
+            500,
+            2500,
+            0,
+            0
+        ],
+        "next": "买货3"
+    },
+    "买货3": {
+        "recognition": "OCR",
+        "expected": "交易所",
+        "action": "Click",
+        "target_offset": [
+            0,
+            100,
+            0,
+            0
+        ],
+        "post_delay": 2000,
+        "next": "买货4"
+    },
+    "买货4": {
+        "recognition": "OCR",
+        "expected": "我要买",
+        "action": "Click",
+        "next": "买货5"
+    },
+    "买货5": {
+        "recognition": "OCR",
+        "expected": "使用道具",
+        "action": "Click",
+        "next": "买货6"
+    },
+    "买货6": {
+        "recognition": "OCR",
+        "expected": "进货采买书",
+        "action": "Click",
+        "target_offset": [
+            150,
+            0,
+            0,
+            0
+        ],
+        "next": "买货7"
+    },
+    "买货7": {
+        "recognition": "OCR",
+        "expected": "确认",
+        "action": "Click",
+        "post_delay": 2000,
+        "next": "买货8"
+    },
+    "买货8": {
+        "recognition": "OCR",
+        "expected": "全部买入",
+        "action": "Click",
+        "next": "砍价"
+    },
+    "砍价": {
+        "recognition": "FeatureMatch",
+        "template": "砍价.png",
+        "action": "Click",
+        "timeout": 3000,
+        "timeout_next": "砍价",
+        "next": "砍价成功"
+    },
+    "砍价成功": {
+        "recognition": "OCR",
+        "expected": "20.0",
+        "timeout": 3000,
+        "timeout_next": "砍价",
+        "next": "买入"
+    },
+    "买入": {
+        "recognition": "FeatureMatch",
+        "template": "买入.png",
+        "action": "Click",
+        "timeout": 3000,
+        "timeout_next": "买入",
+        "post_delay": 2000,
+        "next": "跑商触碰空白区域退出"
+    },
+    "跑商触碰空白区域退出": {
+        "recognition": "OCR",
+        "expected": "触碰空白区域退出",
+        "action": "Click",
+        "next": "跑商主页"
+    },
+    "跑商主页": {
+        "recognition": "FeatureMatch",
+        "template": "主页.png",
+        "action": "Click",
+        "next": "跑商出发1"
+    },
+    "跑商出发1": {
+        "recognition": "OCR",
+        "expected": "启程",
+        "action": "Click",
+        "target_offset": [
+            100,
+            100,
+            0,
+            0
+        ],
+        "next": "跑商出发2"
+    },
+    "跑商出发2": {
+        "action": "Swipe",
+        "begin": [
+            500,
+            2500,
+            0,
+            0
+        ],
+        "end": [
+            2500,
+            500,
+            0,
+            0
+        ],
+        "next": "跑商出发3"
+    },
+    "跑商出发3": {
+        "action": "Swipe",
+        "begin": [
+            500,
+            2500,
+            0,
+            0
+        ],
+        "end": [
+            2500,
+            500,
+            0,
+            0
+        ],
+        "next": "跑商出发4"
+    },
+    "跑商出发4": {
+        "recognition": "OCR",
+        "expected": "阿妮塔能源研究所",
+        "action": "Click",
+        "target_offset": [
+            0,
+            -50,
+            0,
+            0
+        ],
+        "next": "跑商前往目的地"
+    },
+    "跑商前往目的地": {
+        "recognition": "OCR",
+        "expected": "前往目的地",
+        "timeout": 3600000,
+        "action": "Click",
+        "next": "跑商进入站点"
+    },
+    "跑商进入站点": {
+        "recognition": "OCR",
+        "expected": "进入站点",
+        "action": "Click",
+        "next": "跑商站点到达1",
+        "timeout": 3000,
+        "timeout_next": "跑商到达"
+    },
+    "跑商站点到达1": {
+        "recognition": "OCR",
+        "expected": "触碰空白区域退出",
+        "action": "Click",
+        "next": "跑商站点到达2",
+        "timeout": 3000,
+        "timeout_next": "跑商到达"
+    },
+    "跑商站点到达2": {
+        "recognition": "OCR",
+        "expected": "触碰空白区域退出",
+        "action": "Click",
+        "timeout": 3000,
+        "timeout_next": "跑商到达"
+    },
+    "跑商到达": {
+        "recognition": "OCR",
+        "expected": [
+            "访问城市",
+            "访问地区"
+        ],
+        "action": "Click",
+        "next": "卖货1"
+    },
+    "卖货1": {
+        "recognition": "OCR",
+        "expected": "交易所",
+        "action": "Click",
+        "target_offset": [
+            0,
+            100,
+            0,
+            0
+        ],
+        "post_delay": 2000,
+        "next": "卖货2"
+    },
+    "卖货2": {
+        "recognition": "OCR",
+        "expected": "我要卖",
+        "action": "Click",
+        "next": "卖货3"
+    },
+    "卖货3": {
+        "recognition": "OCR",
+        "expected": "全部卖出",
+        "action": "Click",
+        "next": "抬价"
+    },
+    "抬价": {
+        "recognition": "FeatureMatch",
+        "template": "抬价.png",
+        "action": "Click",
+        "timeout": 3000,
+        "timeout_next": "抬价",
+        "next": "抬价成功"
+    },
+    "抬价成功": {
+        "recognition": "OCR",
+        "expected": "20.0",
+        "timeout": 3000,
+        "timeout_next": "抬价",
+        "next": "卖出"
+    },
+    "卖出": {
+        "recognition": "FeatureMatch",
+        "template": "卖出.png",
+        "action": "Click",
+        "timeout": 3000,
+        "timeout_next": "卖出",
+        "post_delay": 2000,
+        "next": "跑商触碰空白区域退出2"
+    },
+    "跑商触碰空白区域退出2": {
+        "recognition": "OCR",
+        "expected": "触碰空白区域退出",
+        "action": "Click",
+        "next": "跑商主页2"
+    },
+    "跑商主页2": {
+        "recognition": "FeatureMatch",
+        "template": "主页.png",
+        "action": "Click",
+        "next": "买货b"
+    },
+    "买货b": {
+        "recognition": "OCR",
+        "expected": [
+            "访问城市",
+            "访问地区"
+        ],
+        "action": "Click",
+        "next": "买货b1"
+    },
+    "买货b1": {
+        "recognition": "OCR",
+        "expected": "交易所",
+        "action": "Click",
+        "target_offset": [
+            0,
+            100,
+            0,
+            0
+        ],
+        "post_delay": 2000,
+        "next": "买货b2"
+    },
+    "买货b2": {
+        "recognition": "OCR",
+        "expected": "我要买",
+        "action": "Click",
+        "next": "买货b3"
+    },
+    "买货b3": {
+        "recognition": "OCR",
+        "expected": "全部买入",
+        "action": "Click",
+        "next": "买入b"
+    },
+    "买入b": {
+        "recognition": "FeatureMatch",
+        "template": "买入.png",
+        "action": "Click",
+        "timeout": 3000,
+        "timeout_next": "买入",
+        "post_delay": 2000,
+        "next": "跑商触碰空白区域退出b"
+    },
+    "跑商触碰空白区域退出b": {
+        "recognition": "OCR",
+        "expected": "触碰空白区域退出",
+        "action": "Click",
+        "next": "跑商主页b"
+    },
+    "跑商主页b": {
+        "recognition": "FeatureMatch",
+        "template": "主页.png",
+        "action": "Click",
+        "next": "跑商返回1"
+    },
+    "跑商返回1": {
+        "recognition": "OCR",
+        "expected": "启程",
+        "action": "Click",
+        "target_offset": [
+            100,
+            100,
+            0,
+            0
+        ],
+        "next": "跑商返回2"
+    },
+    "跑商返回2": {
+        "action": "Swipe",
+        "begin": [
+            2500,
+            500,
+            0,
+            0
+        ],
+        "end": [
+            500,
+            2500,
+            0,
+            0
+        ],
+        "next": "跑商返回3"
+    },
+    "跑商返回3": {
+        "action": "Swipe",
+        "begin": [
+            2500,
+            500,
+            0,
+            0
+        ],
+        "end": [
+            500,
+            2500,
+            0,
+            0
+        ],
+        "next": "跑商返回4"
+    },
+    "跑商返回4": {
+        "recognition": "OCR",
+        "expected": "曼德矿场",
+        "action": "Click",
+        "target_offset": [
+            0,
+            -50,
+            0,
+            0
+        ],
+        "next": "跑商返回目的地"
+    },
+    "跑商返回目的地": {
+        "recognition": "OCR",
+        "expected": "前往目的地",
+        "timeout": 3600000,
+        "action": "Click",
+        "next": "跑商进入站点2"
+    },
+    "跑商进入站点2": {
+        "recognition": "OCR",
+        "expected": "进入站点",
+        "action": "Click",
+        "next": "跑商站点到达b1",
+        "timeout": 3000,
+        "timeout_next": "跑商到达b"
+    },
+    "跑商站点到达b1": {
+        "recognition": "OCR",
+        "expected": "触碰空白区域退出",
+        "action": "Click",
+        "next": "跑商站点到达b2",
+        "timeout": 3000,
+        "timeout_next": "跑商到达b"
+    },
+    "跑商站点到达b2": {
+        "recognition": "OCR",
+        "expected": "触碰空白区域退出",
+        "action": "Click",
+        "timeout": 3000,
+        "timeout_next": "跑商到达b"
+    },
+    "跑商到达b": {
+        "recognition": "OCR",
+        "expected": [
+            "访问城市",
+            "访问地区"
+        ],
+        "action": "Click",
+        "next": "卖货b1"
+    },
+    "卖货b1": {
+        "action": "Swipe",
+        "begin": [
+            2500,
+            500,
+            0,
+            0
+        ],
+        "end": [
+            500,
+            2500,
+            0,
+            0
+        ],
+        "next": "卖货b2"
+    },
+    "卖货b2": {
+        "recognition": "OCR",
+        "expected": "交易所",
+        "action": "Click",
+        "target_offset": [
+            0,
+            100,
+            0,
+            0
+        ],
+        "post_delay": 2000,
+        "next": "卖货b3"
+    },
+    "卖货b3": {
+        "recognition": "OCR",
+        "expected": "我要卖",
+        "action": "Click",
+        "next": "卖货b4"
+    },
+    "卖货b4": {
+        "recognition": "OCR",
+        "expected": "全部卖出",
+        "action": "Click",
+        "next": "卖出b"
+    },
+    "卖出b": {
+        "recognition": "FeatureMatch",
+        "template": "卖出.png",
+        "action": "Click",
+        "timeout": 3000,
+        "timeout_next": "卖出",
+        "post_delay": 2000,
+        "next": "跑商触碰空白区域退出b2"
+    },
+    "跑商触碰空白区域退出b2": {
+        "recognition": "OCR",
+        "expected": "触碰空白区域退出",
+        "action": "Click",
+        "next": "跑商主页b2"
+    },
+    "跑商主页b2": {
+        "recognition": "FeatureMatch",
+        "template": "主页.png",
+        "action": "Click"
+    }
+}
