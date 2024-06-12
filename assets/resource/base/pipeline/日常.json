@@ -417,8 +417,20 @@
     "前往目的地": {
         "recognition": "OCR",
         "expected": "前往目的地",
-        "timeout": 3600000,
         "action": "Click",
+        "next": "前往目的地途中"
+    },
+    "前往目的地途中": {
+        "recognition": "OCR",
+        "expected": "目的地",
+        "post_wait_freezes": 15000,
+        "target": [
+            1500,
+            0,
+            1000,
+            500
+        ],
+        "timeout": 3600000,
         "next": "进入站点"
     },
     "进入站点": {
@@ -711,8 +723,20 @@
     "前往目的地b": {
         "recognition": "OCR",
         "expected": "前往目的地",
-        "timeout": 3600000,
         "action": "Click",
+        "next": "前往目的地途中b"
+    },
+    "前往目的地途中b": {
+        "recognition": "OCR",
+        "expected": "目的地",
+        "post_wait_freezes": 15000,
+        "target": [
+            1500,
+            0,
+            1000,
+            500
+        ],
+        "timeout": 3600000,
         "next": "进入站点b"
     },
     "进入站点b": {
