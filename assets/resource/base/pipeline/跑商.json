@@ -1,7 +1,97 @@
 {
     "跑商": {
         "recognition": "OCR",
+        "expected": [
+            "访问城市",
+            "访问地区"
+        ],
+        "next": [
+            "跑商出发",
+            "跑商到达"
+        ]
+    },
+    "跑商出发": {
+        "recognition": "OCR",
         "expected": "曼德矿场",
+        "next": "清货"
+    },
+    "清货": {
+        "recognition": "OCR",
+        "expected": [
+            "访问城市",
+            "访问地区"
+        ],
+        "action": "Click",
+        "post_delay": 2000,
+        "next": "清货1"
+    },
+    "清货1": {
+        "action": "Swipe",
+        "begin": [
+            2500,
+            500,
+            0,
+            0
+        ],
+        "end": [
+            500,
+            2500,
+            0,
+            0
+        ],
+        "next": "清货2"
+    },
+    "清货2": {
+        "recognition": "OCR",
+        "expected": "交易所",
+        "action": "Click",
+        "target_offset": [
+            0,
+            100,
+            0,
+            0
+        ],
+        "post_delay": 2000,
+        "next": "清货3"
+    },
+    "清货3": {
+        "recognition": "OCR",
+        "expected": "我要卖",
+        "action": "Click",
+        "next": "清货4"
+    },
+    "清货4": {
+        "recognition": "OCR",
+        "expected": "全部卖出",
+        "action": "Click",
+        "timeout": 3000,
+        "timeout_next": "清货主页",
+        "next": "清货判断"
+    },
+    "清货判断": {
+        "recognition": "OCR",
+        "expected": "全部取消",
+        "next": "清货卖出"
+    },
+    "清货卖出": {
+        "recognition": "FeatureMatch",
+        "template": "卖出.png",
+        "action": "Click",
+        "timeout": 3000,
+        "timeout_next": "卖出",
+        "post_delay": 2000,
+        "next": "清货触碰空白区域退出"
+    },
+    "清货触碰空白区域退出": {
+        "recognition": "OCR",
+        "expected": "触碰空白区域退出",
+        "action": "Click",
+        "next": "清货主页"
+    },
+    "清货主页": {
+        "recognition": "FeatureMatch",
+        "template": "主页.png",
+        "action": "Click",
         "next": "买货1"
     },
     "买货1": {
@@ -11,6 +101,7 @@
             "访问地区"
         ],
         "action": "Click",
+        "post_delay": 2000,
         "next": "买货2"
     },
     "买货2": {
@@ -30,6 +121,8 @@
         "next": "买货3"
     },
     "买货3": {
+        "timeout": 3000,
+        "timeout_next": "买货2",
         "recognition": "OCR",
         "expected": "交易所",
         "action": "Click",
@@ -45,6 +138,20 @@
     "买货4": {
         "recognition": "OCR",
         "expected": "我要买",
+        "action": "Click",
+        "next": "买货判断1"
+    },
+    "买货判断1": {
+        "recognition": "OCR",
+        "expected": "全部买入",
+        "action": "Click",
+        "timeout": 3000,
+        "timeout_next": "跑商主页",
+        "next": "买货判断2"
+    },
+    "买货判断2": {
+        "recognition": "OCR",
+        "expected": "全部取消",
         "action": "Click",
         "next": "买货5"
     },
@@ -125,6 +232,7 @@
             0,
             0
         ],
+        "post_delay": 2000,
         "next": "跑商出发2"
     },
     "跑商出发2": {
@@ -211,15 +319,13 @@
         "expected": "触碰空白区域退出",
         "action": "Click",
         "timeout": 3000,
-        "timeout_next": "跑商到达"
+        "timeout_next": "跑商"
     },
     "跑商到达": {
         "recognition": "OCR",
-        "expected": [
-            "访问城市",
-            "访问地区"
-        ],
+        "expected": "阿妮塔能源研究所",
         "action": "Click",
+        "target": "跑商",
         "next": "卖货1"
     },
     "卖货1": {
@@ -245,6 +351,13 @@
         "recognition": "OCR",
         "expected": "全部卖出",
         "action": "Click",
+        "timeout": 3000,
+        "timeout_next": "跑商主页2",
+        "next": "卖货判断"
+    },
+    "卖货判断": {
+        "recognition": "OCR",
+        "expected": "全部取消",
         "next": "抬价"
     },
     "抬价": {
@@ -315,6 +428,13 @@
         "recognition": "OCR",
         "expected": "全部买入",
         "action": "Click",
+        "timeout": 3000,
+        "timeout_next": "跑商主页b",
+        "next": "买货判断b"
+    },
+    "买货判断b": {
+        "recognition": "OCR",
+        "expected": "全部取消",
         "next": "买入b"
     },
     "买入b": {
@@ -348,6 +468,7 @@
             0,
             0
         ],
+        "post_delay": 2000,
         "next": "跑商返回2"
     },
     "跑商返回2": {
@@ -484,6 +605,13 @@
         "recognition": "OCR",
         "expected": "全部卖出",
         "action": "Click",
+        "timeout": 3000,
+        "timeout_next": "跑商主页b2",
+        "next": "卖货判断b"
+    },
+    "卖货判断b": {
+        "recognition": "OCR",
+        "expected": "全部取消",
         "next": "卖出b"
     },
     "卖出b": {
